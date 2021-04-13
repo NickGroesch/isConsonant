@@ -9,11 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RestService {
 
-    private static final String template = "Hello, %s!";
-    private final AtomicLong counter = new AtomicLong();
-
-    @GetMapping("/greeting")
-    public Greeting greeting(@RequestParam(value = "name", defaultValue = "Default") String name) {
-        return new Greeting(counter.incrementAndGet(), String.format(template, name));
+    @GetMapping("/note")
+    public Note greeting(@RequestParam(value = "midi", defaultValue = "60") String midi) {
+        System.out.println("badaboom");
+        return new Note(Integer.valueOf(midi));
     }
 }
