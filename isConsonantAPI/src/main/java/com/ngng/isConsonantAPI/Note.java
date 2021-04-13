@@ -27,7 +27,7 @@ public class Note {
         Integer octave = midi / 12;
         Integer midiMod = midi % 12;
         String letter = Note.midiPitchMap.get(midiMod);
-        System.out.println(letter.concat(octave.toString()));
+        // System.out.println(letter.concat(octave.toString()));
         return letter.concat(octave.toString());
     }
 
