@@ -3,9 +3,11 @@ package com.ngng.isConsonantAPI;
 import java.util.Hashtable;
 
 public class Note {
+    // internal properties
     private final Integer midi;
     private final String scientific;
 
+    // static resources
     public static Hashtable<Integer, String> midiPitchMap;
     static {
         midiPitchMap = new Hashtable<Integer, String>();
@@ -31,16 +33,23 @@ public class Note {
         return letter.concat(octave.toString());
     }
 
+    // constructors
     public Note(Integer midi) {
         this.midi = midi;
         this.scientific = Note.midiToScientific(midi);
     }
 
+    // getters
     public Integer getPitch() {
         return this.midi;
     }
 
     public String getScientific() {
         return this.scientific;
+    }
+
+    // instance methods
+    public Note transpose(int midiDiff) {
+        return new Note(this.midi + midiDiff);
     }
 }

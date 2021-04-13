@@ -20,8 +20,19 @@ public class NoteTest {
 
     @Test
     public void translatesMidiIntoScientific2() {
-        Note middleC = new Note(61);
-        assertEquals(middleC.getScientific(), "C#5");
+        Note middleCs = new Note(61);
+        assertEquals(middleCs.getScientific(), "C#5");
+    }
+
+    @Test
+    public void staticMidiPitchMapShouldWork() {
+        assertEquals(Note.midiPitchMap.get(9), "A");
+    }
+
+    @Test
+    public void transposeReturnsProperNote() {
+        Note middleC = new Note(60);
+        assertEquals(middleC.transpose(4).getPitch().doubleValue(), 64, delta);
     }
 
 }
