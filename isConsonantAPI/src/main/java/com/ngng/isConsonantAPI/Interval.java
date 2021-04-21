@@ -6,8 +6,14 @@ public class Interval {
     private final Integer undirected;
     private final Integer vector;
     public final Boolean isUnison;
+    public final Boolean isSimultaneous;
 
-    public Interval(Note first, Note second) {
+    public Interval(Note first, Note second) { 
+        this(first, second, false);
+    }
+
+    public Interval(Note first, Note second, Boolean isSimultaneousParam) { //first and second are semantic for successions, interchangable for simultanaities
+        this.isSimultaneous = isSimultaneousParam;
         if (first.getPitch() >= second.getPitch()) {
             this.upperNote = first;
             this.lowerNote = second;
